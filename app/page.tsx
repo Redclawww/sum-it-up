@@ -4,6 +4,8 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { getSummary } from "@/lib/actions/summary";
 import ReactMarkdown from "react-markdown";
+import {  SignedIn, SignedOut } from '@clerk/clerk-react';
+import { SignIn, SignUp } from "@clerk/nextjs";
 
 export default function Home() {
   async function Summary(url: string) {
@@ -27,6 +29,7 @@ export default function Home() {
   const [url, setUrl] = useState("");
   return (
     <main className="flex items-center flex-col gap-10 justify-center  w-full py-10">
+      <SignedIn>
       <h1 className="text-9xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-200 via-red-200 to-yellow-100">
         Sum It Up
       </h1>
@@ -78,6 +81,12 @@ export default function Home() {
           </button>
         </div>
       )}
+      </SignedIn>
+      <SignedOut>
+       <div className="h-screen flex justify-start items-center">
+         <SignUp  />
+       </div>
+      </SignedOut>
     </main>
   );
 }
