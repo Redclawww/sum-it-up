@@ -33,7 +33,7 @@ export default function Home() {
       <p className="text-center text-white text-2xl">Discover insightful summaries of exciting YouTube videos with just a click! Explore our collection of diverse <br />topics and find the content that piques your interest.</p>
       <Input
         type="url"
-        className="w-[60vh] rounded-full"
+        className="md:w-[60vh] rounded-full"
         placeholder="Enter the Url"
         value={url}
         onChange={(event) => {
