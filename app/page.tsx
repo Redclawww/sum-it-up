@@ -10,7 +10,12 @@ export default function Home() {
     setLoading(true);
     try {
       const summary = await getSummary(url);
-      setSummary(summary);
+      if(summary){
+        setSummary(summary);
+      }
+      else{
+        alert("No summary available for this video. Please try another video.");
+      }
     } catch (error) {
       alert("Internal Server Error");
     } finally {
